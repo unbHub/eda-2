@@ -5,11 +5,14 @@ typedef struct celula {
     struct celula *prox;
 } celula;
 
-void remove_depois (celula *p) {
+int remove_depois (celula *p) {
     if (p != NULL && p->prox != NULL) {
         celula *lixo = p->prox;
         p->prox = lixo->prox;
         free(lixo);
+        return 1;
+    } else {
+        return 0;
     }
 }
 
